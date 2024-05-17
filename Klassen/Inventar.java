@@ -64,5 +64,42 @@ public class Inventar {
             items[i].setId(i);
             items[i].setPreis(random.nextDouble(100));
         }
+
     }
+    public Item findeItem(String itemName) {
+        for (int i = 0; i < items.length; i++) {
+            if(items[i].getBezeichnung().equals(itemName)) {
+                return items[i];
+            }
+        }
+        System.out.println("Du besitzt dieses Item nicht!");
+        return null;
+    }
+
+    public Item findeItem(int itemID, int itemMenge) {
+        for (int i = 0; i < items.length; i++) {
+            if (itemID != 0) {
+                if (items[i].getId() == itemID) {
+                    return items[i];
+                }
+            } else {
+                if (items[i].getMenge() == itemMenge) {
+                    return items[i];
+                }
+            }
+        }
+        System.out.println("Du besitzt dieses Item nicht!");
+        return null;
+    }
+
+    public Item findeItem(double itemPreis) {
+        for (int i = 0; i < items.length; i++) {
+            if(items[i].getPreis() == itemPreis) {
+                return items[i];
+            }
+        }
+        System.out.println("Du besitzt dieses Item nicht!");
+        return null;
+    }
+
 }
